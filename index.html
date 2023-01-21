@@ -1,6 +1,14 @@
 <html>
   <script>
-    console.log("http://localhost:8080/CompTrak/Auth/Login_Redirect.html" + location.search);
-//     window.location = "http://localhost:8080/CompTrak/Auth/Login_Redirect.html" + location.search;
+    let url_params = "";
+        if(location.href.includes("#")) {
+          // Implicit Flow
+          url_params = "#" + location.href.split("#")[1];
+        } else {
+          // Code Flow
+          url_params = "?" + location.href.split("?")[1];
+        }
+    console.log("http://localhost:8080/CompTrak/Auth/Login_Redirect.html/" + url_params);
+//     window.location = "http://localhost:8080/CompTrak/Auth/Login_Redirect.html" + url_params;
   </script>
 </html>
